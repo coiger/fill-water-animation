@@ -44,9 +44,15 @@ Coming back to positioning, all child elements inside the `circle-container` cla
 
 .circle-container > * {
   position: absolute;
-  top: 0;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid white;
 }
 ```
+Because of `box-sizing: content-box`, `width: 100%`, and `border-width: 10px`, the child elements of `circle-container` class becomes 20px larger than the parent element. Therefore, the `top` and `left` properties are given -10px each so that the child elements are positioned in the center of the parent element. (Alternatively, it can be solved by, for example, setting `box-sizing: border-box`.)
 
 ## Make Waves
 

@@ -3,7 +3,7 @@
 Fill wavy water in circle with pure css code. Use as circular percentage chart, loading, and more.
 
 **DEMO**: https://coiger.github.io/fill-water-animation/  
-**CODEPEN:**: https://codepen.io/coiger/pen/NWYgxgj
+**CODEPEN:** https://codepen.io/coiger/pen/NWYgxgj
 
 ## Positioning
 
@@ -29,7 +29,7 @@ The code above shows the elements that make up a circle filled with waving water
 - `.wave`: waves
 - `.wave-below`: water filled under the wave
 - `.desc`: description
-- `.\_0`: a class to give different styles depending on the degree of filling with water (e.g., `\_25`, `\_50`, `\_75`, `\_100`)
+- `._0`: a class to give different styles depending on the degree of filling with water (e.g., `_25`, `_50`, `_75`, `_100`)
 
 As you will see later, `wave` class will receive an animation with an wave background image in svg format. For `wave-below` class's animations, `clip-path` property will be used.
 

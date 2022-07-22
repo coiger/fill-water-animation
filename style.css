@@ -1,0 +1,283 @@
+/*
+ * LAYOUT
+ */
+
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2em;
+
+  background-color: #e9f5fe;
+  color: #3b46d3;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: 1400px;
+  min-width: 360px;
+
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.desc {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/*
+ * FONT SIZE
+ */
+
+h1,
+.desc p {
+  font-size: 5em;
+}
+
+.desc h2 {
+  font-size: 2em;
+}
+
+.desc span {
+  font-size: 0.5em;
+}
+
+.desc * {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  h1,
+  .desc p {
+    font-size: 3.5em;
+  }
+
+  .desc h2 {
+    font-size: 1.5em;
+  }
+}
+
+/*
+ * MAKE CIRCLE
+ */
+
+.circle-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 2em;
+}
+
+@media (max-width: 768px) {
+  .circle-container {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.circle-container > * {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 10px solid white;
+}
+
+.circle {
+  background: white;
+}
+
+/*
+ * MAKE WAVE
+ */
+
+.wave {
+  background: url(wave.svg) repeat-x;
+  opacity: 0.8;
+}
+
+.wave-below {
+  background-color: #3b46d3;
+}
+
+/*
+ * SET WAVE POSITION
+ */
+
+.wave._0 {
+  background-position: 0% 110%;
+}
+.wave-below._0 {
+  clip-path: polygon(0% 110%, 0% 110%, 110% 110%, 110% 110%);
+}
+
+.wave._25 {
+  background-position: 0% 87%;
+}
+.wave-below._25 {
+  clip-path: polygon(0% 110%, 0% 80%, 110% 80%, 110% 110%);
+}
+
+.wave._50 {
+  background-position: 0% 57%;
+}
+.wave-below._50 {
+  clip-path: polygon(0% 110%, 0% 58%, 110% 58%, 110% 110%);
+}
+
+.wave._75 {
+  background-position: 0% 30%;
+}
+.wave-below._75 {
+  clip-path: polygon(0% 110%, 0% 35%, 110% 35%, 110% 110%);
+}
+
+.wave._100 {
+  background-position: 0% 5%;
+}
+.wave-below._100 {
+  clip-path: polygon(0% 110%, 0% 15%, 110% 15%, 110% 110%);
+}
+
+/*
+ * DEFINE FILLING ANIMATION
+ */
+
+@keyframes fill-wave {
+  from {
+    background-position: -1200px 110%;
+  }
+}
+
+@keyframes fill-below {
+  from {
+    clip-path: polygon(0% 110%, 0% 110%, 110% 110%, 110% 110%);
+  }
+}
+
+/*
+ * DEFINE WAVE ANIMATION
+ */
+
+@keyframes wave-0 {
+  to {
+    background-position: 1200px 110%;
+  }
+}
+
+@keyframes wave-25 {
+  to {
+    background-position: 1200px 87%;
+  }
+}
+
+@keyframes wave-50 {
+  to {
+    background-position: 1200px 57%;
+  }
+}
+
+@keyframes wave-75 {
+  to {
+    background-position: 1200px 30%;
+  }
+}
+
+@keyframes wave-100 {
+  to {
+    background-position: 1200px 5%;
+  }
+}
+
+/*
+ * GIVE FILLING & WAVE ANIMATION
+ */
+:root {
+  --ease-in: cubic-bezier(0.58, 0.42, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.42, 0.58);
+}
+
+.wave {
+  animation-name: fill-wave, wave-0;
+  animation-duration: 5s, 7s;
+  animation-delay: 0s, 5s;
+  animation-fill-mode: forwards, none;
+  animation-iteration-count: 1, infinite;
+  animation-timing-function: var(--ease-in), var(--ease-out);
+}
+.wave._25 {
+  animation-name: fill-wave, wave-25;
+}
+.wave._50 {
+  animation-name: fill-wave, wave-50;
+}
+.wave._75 {
+  animation-name: fill-wave, wave-75;
+}
+.wave._100 {
+  animation-name: fill-wave, wave-100;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 5s, 11s;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 5s, 13s;
+}
+
+.wave-below {
+  animation: 5s var(--ease-in) forwards fill-below;
+}
+.wave-below._50 {
+  animation: 7s -2s var(--ease-in) forwards fill-below;
+}
+.wave-below._75,
+.wave-below._100 {
+  animation: 6s -1s var(--ease-in) forwards fill-below;
+}
+
+/*
+ * DEFINE TEXT ANIMATION
+ */
+@keyframes rise-up {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateY(-10px);
+  }
+}
+
+.desc * {
+  animation: 1s 6s both rise-up;
+}
+
+.desc._50 p {
+  color: white;
+}
+
+.desc._75,
+.desc._100 {
+  color: white;
+}

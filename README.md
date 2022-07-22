@@ -2,8 +2,10 @@
 
 Fill wavy water in circle with pure css code. Use as circular percentage chart, loading, and more.
 
-**DEMO**: https://coiger.github.io/fill-water-animation/  
+**DEMO:** https://coiger.github.io/fill-water-animation  
 **CODEPEN:** https://codepen.io/coiger/pen/NWYgxgj
+
+<img src="img/readme-result.gif" alt="Wave Water Filling Animation">
 
 ## Positioning
 
@@ -86,6 +88,7 @@ The code above is part of the code to place a wave and water below it. For the r
 The property used to place the waves is the `background-position`, and the water below uses the `clip-path` to show only the part of background.
 
 Here's what it looks like so far:
+
 <img src="img/readme-wave.png" alt="static water image">
 
 Class `_0` means that water is 0% filled, and `_25` means that it is 25% full. However, _note that the percentage value seems somewhat less relevant_. This means that I didn't fill the water exactly, say 25% correctly, and in some circumstances you don't have to. Such a situation is, for example, when using quantized values such as 0%, 25%, 50%, 75%, 100% as in this project. I thought it's enough to give proper distinction between those values. So, the value in codes can be flexibly changed if you want, but you may need to adjust the values of animation properties.
@@ -166,12 +169,14 @@ The cubic-bezier function to be used as animation timing function is almost line
 }
 ```
 
-Here's what it looks like so far (The gif is looping through the animation, but in code, once it's filled, the animation stops.):  
+Here's what it looks like so far (The gif is looping through the animation, but in code, once it's filled, the animation stops.):
+
 <img src="img/readme-filling.gif" alt="Water Filling Animation">
 
 The code gives `fill-wave` and `fill-below` animations to the wave and the water below it, respectively. The elapsed time of the animation is 5 seconds.
 
-Note that in the case of water below, a negative delay is given as a trick. This is because we are animating two different elements separately. When the waves and the water below them fill, and if the timing is a little off, and there is a gap between them, resulting in an ugly animation. For example, if I give animation duration 5s without delay in 50% filling, it looks like the following:  
+Note that in the case of water below, a negative delay is given as a trick. This is because we are animating two different elements separately. When the waves and the water below them fill, and if the timing is a little off, and there is a gap between them, resulting in an ugly animation. For example, if I give animation duration 5s without delay in 50% filling, it looks like the following:
+
 <img src="img/readme-ugly.gif" alt="Ugly Filling Animation" width="300px" height="300px">
 
 To solve this problem, you can also use the non-animation method. For example, you can reduce the distance between elements. I tried that method, but if they get too close, the curve of the wave was invaded and the waving animation became ugly. Therefore, negative delay is given so that the animation starts moderately early.
@@ -217,5 +222,7 @@ Another key point it that all elapsed times are prime numbers. This was to preve
 
 ## FINAL RESULT
 
-**DEMO**: https://coiger.github.io/fill-water-animation/  
-**CODEPEN:**: https://codepen.io/coiger/pen/NWYgxgj
+**DEMO:** https://coiger.github.io/fill-water-animation  
+**CODEPEN:** https://codepen.io/coiger/pen/NWYgxgj
+
+<img src="img/readme-result.gif" alt="Wave Water Filling Animation">

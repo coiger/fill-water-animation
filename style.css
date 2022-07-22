@@ -281,3 +281,40 @@ h1,
 .desc._100 {
   color: white;
 }
+
+/*
+ * STYLING FOOTER
+ */
+footer .social-icons {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+footer i {
+  color: #3743e3;
+  font-size: 28px;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  transition: 300ms;
+}
+
+@media (max-width: 768px) {
+  footer .social-icons {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+  }
+
+  footer i {
+    font-size: 20px;
+  }
+}
+
+footer a {
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+footer i:hover {
+  transform: translateY(-5px);
+}
